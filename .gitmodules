@@ -1,3 +1,0 @@
-[submodule "grammars/tree-sitter-htmldjango"]
-	path = grammars/tree-sitter-htmldjango
-	url = https://github.com/interdependence/tree-sitter-htmldjango.git

@@ -1,0 +1,7 @@
+id = "django-templates"
+name = "Django Templates"
+version = "0.0.1"
+schema_version = 1
+authors = ["Chris King <chris@wolftickets.ai>"]
+description = "Adds language support for Django Templates"
+repository = "https://github.com/chrisking/zed-django-templates"
