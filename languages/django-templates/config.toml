@@ -1,23 +1,6 @@
-name = "Django Templates"
-grammar = "htmldjango" # Use the name from the bundled tree-sitter.json
-path_suffixes = ["html", "base.html", "template.html"] # Common Django template extensions
-line_comment_prefix = "{# " # Django template line comment (if applicable, often block comments are used)
-block_comment_prefix = "{% comment %}"
-block_comment_suffix = "{% endcomment %}"
-
-# --- Tree-sitter Configuration ---
-# Point to the *local* source directory within this language folder
-tree_sitter.grammar_path = "tree-sitter-htmldjango-source" 
-# Specify the query files from the *local* source directory
-tree_sitter.highlights_query_path = "tree-sitter-htmldjango-source/queries/highlights.scm"
-# Add paths for other queries if available (e.g., injections, locals)
-tree_sitter.injections_query_path = "tree-sitter-htmldjango-source/queries/injections.scm"
-# tree_sitter.locals_query_path = "tree-sitter-htmldjango-source/queries/locals.scm" # Assuming no locals query for now
-
-# --- Language Server Configuration (Optional) ---
-# If Zed supports LSP configuration here, you would add it.
-# This might involve specifying the command to start django-template-lsp
-# Example (syntax purely speculative based on common LSP configs):
-#[language_server]
-#command = "django-template-lsp" 
-#args = ["--stdio"] 
+name = "Django Template"
+grammar = "htmldjango"
+path_suffixes = ["html"]
+line_comments = ["{# ", " #}"]
+tab_size = 4
+hard_tabs = false 

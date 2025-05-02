@@ -5,3 +5,8 @@ schema_version = 1
 authors = ["Chris King <chris@wolftickets.ai>"]
 description = "Adds language support for Django Templates"
 repository = "https://github.com/chrisking/zed-django-templates"
+
+[grammars.htmldjango]
+repository = "https://github.com/interdependence/tree-sitter-htmldjango"
+rev = "3a643167ad9afac5d61e092f08ff5b054576fadf"
+
