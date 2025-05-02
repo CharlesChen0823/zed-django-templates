@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site_title|default:"Default Title" }} - {% block title %}Base Title{% endblock %}</title>
+    {% block head_extra %}{# Extra head content #}{% endblock %}
+</head>
+<body>
+    <header>
+        <h1>{{ site_name }}</h1>
+        {# This is an unpaired comment #}
+    </header>
+
+    <main>
+        {% block content %}
+            <p>This is default content from base.html.</p>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {% now "Y" %} {{ company_name }}. All rights reserved.</p>
+        {% comment %}
+            This is a paired comment.
+            It can span multiple lines.
+        {% endcomment %}
+    </footer>
+
+    {% block scripts_extra %}
+        <script>
+            // Base script block
+            console.log("Base template loaded");
+        </script>
+    {% endblock %}
+</body>
+</html> 

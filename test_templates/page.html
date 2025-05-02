@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}{# Example of loading tags #}
+
+{% block title %}Page Title{% endblock %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="{% static 'css/page.css' %}">
+    <style>
+        .important {
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h2>{{ page_heading }}</h2>
+
+    {% if user.is_authenticated %}
+        <p>Welcome back, {{ user.username }}!</p>
+        {% if items %}
+            <p>Your items:</p>
+            <ul>
+                {% for item in items %}
+                    <li class="{% cycle 'odd' 'even' %}">{{ item.name|capfirst }} - Price: ${{ item.price|floatformat:2 }}
+                        {% if item.stock < 5 %}
+                            <span class="important">(Low stock!)</span>
+                        {% endif %}
+                    </li>
+                {% empty %}
+                    <li>You have no items.</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No items found.</p>
+        {% endif %}
+    {% else %}
+        <p>Please log in.</p>
+    {% endif %}
+
+    <hr>
+
+    {% include "include_snippet.html" with snippet_var="Passed from page.html" %}
+
+    {# Verbatim tag example #}
+    {% verbatim %}
+        This will be rendered literally: {{ variable }} {% tag %}
+    {% endverbatim %}
+
+{% endblock %}
+
+{% block scripts_extra %}
+    {{ block.super }}
+    <script>
+        // Page specific script
+        console.log("Page template loaded");
+    </script>
+{% endblock %} 

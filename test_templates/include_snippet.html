@@ -1,0 +1,7 @@
+{# Snippet included with 'include' tag #}
+<div class="snippet">
+    <p>This is an included snippet. Snippet variable: {{ snippet_var }}</p>
+    {% with local_var="Inside snippet" %}
+        <p>With tag: {{ local_var }}</p>
+    {% endwith %}
+</div> 
